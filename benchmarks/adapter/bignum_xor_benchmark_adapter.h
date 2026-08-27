@@ -19,18 +19,18 @@
 #ifndef BIGNUM_XOR_BENCHMARK_ADAPTER_H
 #define BIGNUM_XOR_BENCHMARK_ADAPTER_H
 
-/* The pinned framework dist ships benchmark_core.h; newer CI dist ships the
+/* The pinned framework dist ships benchmark_framework.h; newer CI dist ships the
  * same public API in the flattened benchmark_framework.h single header. */
 #if defined(__has_include)
-#  if __has_include(<benchmark_core.h>)
-#    include <benchmark_core.h>
+#  if __has_include(<benchmark_framework.h>)
+#    include <benchmark_framework.h>
 #  elif __has_include(<benchmark_framework.h>)
 #    include <benchmark_framework.h>
 #  else
 #    error "benchmark-framework public header is not available"
 #  endif
 #else
-#  include <benchmark_core.h>
+#  include <benchmark_framework.h>
 #endif
 
 #ifdef __cplusplus

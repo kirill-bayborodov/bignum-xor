@@ -59,7 +59,7 @@ Build the current binaries and framework, then run the exact documented smoke co
 make build CONFIG=release
 make -s bin/bench_bignum_xor bin/bench_bignum_xor_mt CONFIG=release
 mkdir -p benchmarks/reports
-libs/benchmark-framework/build/tools/bench_matrix \
+libs/benchmark-framework/dist/tools/bench_matrix \
   --manifest benchmarks/profiles/bignum_xor_standard.json \
   --output benchmarks/reports/bignum_xor_standard_matrix.json \
   --st-binary bin/bench_bignum_xor \
@@ -77,7 +77,7 @@ libs/benchmark-framework/build/tools/bench_matrix \
 A successful run produces eight profiles times two modes, xor 16 samples for one repetition. Each accepted benchmark binary invocation emits one machine-readable `benchmark=...` line followed by exactly one `Benchmark finished.` marker. The output JSON is consumed by `benchmark_stats`:
 
 ```bash
-libs/benchmark-framework/build/tools/benchmark_stats \
+libs/benchmark-framework/dist/tools/benchmark_stats \
   --input benchmarks/reports/bignum_xor_standard_matrix.json \
   --output benchmarks/reports/bignum_xor_standard_summary.json
 ```

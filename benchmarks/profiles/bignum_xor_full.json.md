@@ -71,7 +71,7 @@ The full manifest contains eleven profiles: one zero-source case; three one/quar
 make build CONFIG=release
 make -s bin/bench_bignum_xor bin/bench_bignum_xor_mt CONFIG=release
 mkdir -p benchmarks/reports
-libs/benchmark-framework/build/tools/bench_matrix \
+libs/benchmark-framework/dist/tools/bench_matrix \
   --manifest benchmarks/profiles/bignum_xor_full.json \
   --output benchmarks/reports/bignum_xor_full_matrix.json \
   --st-binary bin/bench_bignum_xor \
@@ -89,7 +89,7 @@ libs/benchmark-framework/build/tools/bench_matrix \
 A successful seven-repetition run produces 11 profiles times two modes times seven repetitions, xor 154 samples. Every accepted process must emit exactly one `benchmark=...` line and one `Benchmark finished.` marker. Summarize the raw matrix as follows:
 
 ```bash
-libs/benchmark-framework/build/tools/benchmark_stats \
+libs/benchmark-framework/dist/tools/benchmark_stats \
   --input benchmarks/reports/bignum_xor_full_matrix.json \
   --output benchmarks/reports/bignum_xor_full_summary.json
 ```
@@ -103,7 +103,7 @@ Add a unique profile object using only values from the vocabulary table, validat
 Candidate and baseline are comparable only with identical profile IDs, schema, build configuration, CPU/affinity conditions, seed, data count, warmup, iterations, thread count, and timing boundary. Compare reviewed raw matrices using:
 
 ```bash
-libs/benchmark-framework/build/tools/benchmark_stats \
+libs/benchmark-framework/dist/tools/benchmark_stats \
   --input benchmarks/reports/candidate_full_matrix.json \
   --baseline benchmarks/reports/reviewed_full_matrix.json \
   --output benchmarks/reports/candidate_full_summary.json \
